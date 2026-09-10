@@ -99,6 +99,8 @@
   .site-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
   .site-card{background:var(--white); border-radius:14px; overflow:hidden; box-shadow:0 12px 30px rgba(40,40,40,.09);}
   .site-photo{aspect-ratio:4/3; background:repeating-linear-gradient(135deg, rgba(128,128,128,.14) 0 20px, rgba(239,191,4,.14) 20px 40px); display:flex; align-items:center; justify-content:center; text-align:center; color:var(--gray); font-size:11.5px; padding:16px; line-height:1.7;}
+  .site-photo-gallery{padding:0; gap:2px; display:grid; grid-template-columns:1fr 1fr;}
+  .site-photo-gallery img{width:100%; height:100%; object-fit:cover; display:block;}
   .site-body{padding:18px 20px;}
   .site-body h4{font-size:16px; color:var(--gray-dark);}
   .site-body .en{font-size:11.5px; color:var(--gold-deep); letter-spacing:.06em; margin-top:2px;}
@@ -183,7 +185,7 @@
     <p class="num">02</p>
     <div class="section-head"><h2>五大潛點</h2><p class="en">Signature Dive Sites</p></div>
     <div class="site-grid">
-      <div class="site-card"><div class="site-photo">［Blue Corner<br>照片／影片 3-5 張待補］</div><div class="site-body"><h4>藍角</h4><p class="en">Blue Corner</p></div></div>
+      <div class="site-card"><div class="site-photo site-photo-gallery"><img class="no-save" src="dive-bluecorner-1.jpg" alt="藍角潛點 灰礁鯊與魚群 - BAMBI Dive Academy Palau" loading="lazy"><img class="no-save" src="dive-bluecorner-2.jpg" alt="藍角潛點 拿破崙魚 - BAMBI Dive Academy Palau" loading="lazy"></div><div class="site-body"><h4>藍角</h4><p class="en">Blue Corner</p></div></div>
       <div class="site-card"><div class="site-photo">［Blue Hole<br>照片／影片 3-5 張待補］</div><div class="site-body"><h4>藍洞</h4><p class="en">Blue Hole</p></div></div>
       <div class="site-card"><div class="site-photo">［Ulong Channel<br>照片／影片 3-5 張待補］</div><div class="site-body"><h4>烏龍水道</h4><p class="en">Ulong Channel</p></div></div>
       <div class="site-card"><div class="site-photo">［Peleliu<br>照片／影片 3-5 張待補］</div><div class="site-body"><h4>貝里琉</h4><p class="en">Peleliu</p></div></div>
