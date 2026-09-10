@@ -133,6 +133,12 @@
   .contact-card h2{font-size:clamp(24px,3.6vw,34px); color:var(--gray-dark); line-height:1.45; margin-bottom:22px;}
   .contact-links{display:flex; gap:12px; flex-wrap:wrap;}
   .contact-meta{margin-top:22px; font-size:13px; color:var(--gray); line-height:1.9;}
+  .hero-video{
+    margin-top:26px; max-width:560px; position:relative; width:100%;
+    padding-bottom:56.25%; height:0; overflow:hidden; border-radius:14px;
+    box-shadow:0 18px 40px rgba(0,0,0,.18); background:#000;
+  }
+  .hero-video iframe{position:absolute; top:0; left:0; width:100%; height:100%; border:0;}
 </style>
 </head>
 <body>
@@ -147,7 +153,9 @@
     <h1 class="brand">BAMBI DIVE<br><em>ACADEMY</em></h1>
     <p class="tagline">心繫陸地，魂牽海洋<span class="en">Rooted on land, Drawn to the ocean.</span></p>
     <p class="subtitle">為追求品質的您打造帛琉潛水私享潛旅——從容、安心、專注享受屬於您的海洋時光。</p>
-    <div class="hero-visual-note">［主視覺待補：建議放 10–30 秒水下震撼影片或高畫質照片，內容包含鯊魚、魚群、潛水員身影、Blue Corner 或大型海洋生物，作為整頁最重要的第一印象］</div>
+    <div class="hero-video">
+      <iframe src="https://www.youtube.com/embed/oADZWXq9dKo" title="BAMBI Dive Academy - Palau Diving" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
     <div class="cta-row">
       <a href="https://lin.ee/UnXM6Xm" class="btn primary">Start Planning on LINE</a>
       <a href="mailto:bambibambi.cc@gmail.com" class="btn ghost">Email BAMBI</a>
