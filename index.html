@@ -100,8 +100,8 @@
   .site-card{background:var(--white); border-radius:14px; overflow:hidden; box-shadow:0 12px 30px rgba(40,40,40,.09);}
   .site-photo{aspect-ratio:4/3; background:repeating-linear-gradient(135deg, rgba(128,128,128,.14) 0 20px, rgba(239,191,4,.14) 20px 40px); display:flex; align-items:center; justify-content:center; text-align:center; color:var(--gray); font-size:11.5px; padding:16px; line-height:1.7;}
   .site-photo-gallery{padding:0; position:relative; overflow:hidden;}
-  .site-photo-gallery img{width:100%; height:100%; object-fit:cover; display:block; position:absolute; inset:0; opacity:0; transition:opacity .35s ease;}
-  .site-photo-gallery img.active{opacity:1; position:relative;}
+  .site-photo-gallery img, .site-photo-gallery video{width:100%; height:100%; object-fit:cover; display:block; position:absolute; inset:0; opacity:0; transition:opacity .35s ease;}
+  .site-photo-gallery img.active, .site-photo-gallery video.active{opacity:1; position:relative;}
   .gallery-nav{position:absolute; top:50%; transform:translateY(-50%); width:32px; height:32px; border-radius:50%; background:rgba(0,0,0,.45); color:#fff; border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:16px; z-index:2; opacity:0; transition:opacity .2s;}
   .site-photo-gallery:hover .gallery-nav{opacity:1;}
   .gallery-nav.prev{left:8px;}
@@ -209,7 +209,14 @@
         <button class="gallery-nav next" aria-label="下一張">&#10095;</button>
         <div class="gallery-dots"><span class="active"></span><span></span><span></span></div>
       </div><div class="site-body"><h4>藍洞</h4><p class="en">Blue Hole</p></div></div>
-      <div class="site-card"><div class="site-photo">［Ulong Channel<br>照片／影片 3-5 張待補］</div><div class="site-body"><h4>烏龍水道</h4><p class="en">Ulong Channel</p></div></div>
+      <div class="site-card"><div class="site-photo site-photo-gallery">
+        <img class="no-save active" src="dive-ulong-1.jpg" alt="烏龍水道潛點 玫瑰珊瑚花園與潛水員 - BAMBI Dive Academy Palau" loading="lazy">
+        <img class="no-save" src="dive-ulong-2.jpg" alt="烏龍水道潛點 魚群與陽光 - BAMBI Dive Academy Palau" loading="lazy">
+        <video class="no-save" src="dive-ulong-video.mp4" muted loop playsinline preload="none"></video>
+        <button class="gallery-nav prev" aria-label="上一張">&#10094;</button>
+        <button class="gallery-nav next" aria-label="下一張">&#10095;</button>
+        <div class="gallery-dots"><span class="active"></span><span></span><span></span></div>
+      </div><div class="site-body"><h4>烏龍水道</h4><p class="en">Ulong Channel</p></div></div>
       <div class="site-card"><div class="site-photo">［Peleliu<br>照片／影片 3-5 張待補］</div><div class="site-body"><h4>貝里琉</h4><p class="en">Peleliu</p></div></div>
       <div class="site-card"><div class="site-photo">［German Channel<br>照片／影片 3-5 張待補］</div><div class="site-body"><h4>德國水道</h4><p class="en">German Channel</p></div></div>
       <div class="site-card"><div class="site-photo">［Sand Bar<br>照片／影片 3-5 張待補］</div><div class="site-body"><h4>玻璃城</h4><p class="en">Sand Bar</p></div></div>
@@ -365,12 +372,18 @@ document.querySelectorAll('.no-save').forEach(function(el){
 });
 
 document.querySelectorAll('.site-photo-gallery').forEach(function(gallery){
-  var imgs = gallery.querySelectorAll('img');
+  var imgs = gallery.querySelectorAll('img, video');
   var dots = gallery.querySelectorAll('.gallery-dots span');
   var idx = 0;
   function show(n){
     idx = (n + imgs.length) % imgs.length;
-    imgs.forEach(function(img,i){ img.classList.toggle('active', i===idx); });
+    imgs.forEach(function(img,i){
+      var on = (i===idx);
+      img.classList.toggle('active', on);
+      if(img.tagName === 'VIDEO'){
+        if(on){ img.play().catch(function(){}); } else { img.pause(); }
+      }
+    });
     dots.forEach(function(d,i){ d.classList.toggle('active', i===idx); });
   }
   var prev = gallery.querySelector('.gallery-nav.prev');
